@@ -1,0 +1,7 @@
+---
+- hosts: lnx2
+  tasks:
+   - name: Install openjdk8
+     yum:
+      name: java-1.8.0-openjdk-devel
+      state: present
