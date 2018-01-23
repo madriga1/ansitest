@@ -1,6 +1,4 @@
-pipeline {
-  agent {label 'lnx2'}
-  node {
+node {
     wrap([$class: 'AnsiColorBuildWrapper', colorMapName: "xterm"]) {
         ansiblePlaybook( 
             playbook: 'playbook.yml',
@@ -9,4 +7,3 @@ pipeline {
             colorized: true) 
     }
   }
-}
