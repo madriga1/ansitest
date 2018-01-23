@@ -1,4 +1,4 @@
-node {
+node (lnx2) {
     wrap([$class: 'AnsiColorBuildWrapper', colorMapName: "xterm"]) {
         ansiblePlaybook( 
             playbook: 'playbook.yml',
