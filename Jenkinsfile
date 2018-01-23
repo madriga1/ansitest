@@ -1,4 +1,4 @@
-Pipeline {
+pipeline {
   agent {label 'lnx2'}
   node {
     wrap([$class: 'AnsiColorBuildWrapper', colorMapName: "xterm"]) {
