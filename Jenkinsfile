@@ -1,26 +1,12 @@
-ipeline {
+Pipeline {
   agent {label 'lnx2'}
-  stages {
-    stage('test java installation') {
-      steps {
-        sh 'echo $HOSTNAME'
-        sh 'java -version'
-        sh 'which java'
-      }
-   }
-    stage('test maven installation') {
-      steps {
-        sh 'echo $HOSTNAME'
-        sh 'mvn -version'
-        sh 'which mvn'
-      }
-    }
-    stage('test ansible installation') {
-      steps {
-        sh 'echo $HOSTNAME'
-        sh 'ansible --version'
-        sh 'which ansible'
-      }
+  node {
+    wrap([$class: 'AnsiColorBuildWrapper', colorMapName: "xterm"]) {
+        ansiblePlaybook( 
+            playbook: 'playbook.yml',
+            inventory: 'inventory.ini', 
+            credentialsId: 'sample-ssh-key',
+            colorized: true) 
     }
   }
 }
