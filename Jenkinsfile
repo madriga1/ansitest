@@ -1,4 +1,5 @@
 node {
+    print "Workspace: ${WORKSPACE}"
     wrap([$class: 'AnsiColorBuildWrapper', colorMapName: "xterm"]) {
         ansiblePlaybook( 
             playbook: 'playbook.yml',
