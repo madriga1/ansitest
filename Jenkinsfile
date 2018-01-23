@@ -2,7 +2,7 @@ node (lnx2) {
     wrap([$class: 'AnsiColorBuildWrapper', colorMapName: "xterm"]) {
         ansiblePlaybook( 
             playbook: 'playbook.yml',
-            inventory: 'inventory.ini', 
+            inventory: 'inventory', 
             credentialsId: 'sample-ssh-key',
             colorized: true) 
     }
